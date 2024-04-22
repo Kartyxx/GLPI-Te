@@ -1,0 +1,3 @@
+box background : #BED3E3
+
+button : #6F95AD
