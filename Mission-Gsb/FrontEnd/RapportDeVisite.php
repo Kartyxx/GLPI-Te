@@ -1,5 +1,5 @@
 <?php
-	session_save_path("session");
+	session_save_path("../BackEnd/session");
   session_start();
 ?>
 
@@ -23,7 +23,7 @@
   </table>
 
   <p><br /></p>
-  <form name="inscription" action="ModifierFormulaire.php" method ="post">
+  <form name="inscription" action="../BackEnd/InsertionRapportVisite.php" method ="post">
 
   	<fieldset class="separateur"><legend class="legende">Infos personnelles</legend>
          <table>
@@ -70,8 +70,5 @@
         <input class="bouton" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
   	</p>
   </form>
-<?php
-echo $_SESSION['nom'];
-?>
 </body>
 </html>

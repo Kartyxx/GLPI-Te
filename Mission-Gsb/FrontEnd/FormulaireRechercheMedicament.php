@@ -1,5 +1,5 @@
 <?php
-	session_save_path("session");
+	session_save_path("../BackEnd/session");
   session_start();
 ?>
 
@@ -21,6 +21,8 @@
       <td style="width: 50%; text-align: right;"><h1>Recherche de Medicament&nbsp;&nbsp;</h1></td>
     </tr>
   </table>
+
+
 
   <p><br /></p>
   <form name="inscription" action="selectMedicament.php" method ="post">

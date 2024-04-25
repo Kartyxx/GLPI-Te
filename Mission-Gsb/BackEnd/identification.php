@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+
 <?php
 	session_save_path("session");
   session_start();
@@ -19,14 +21,14 @@
 	$DateEmbauche = $ligne[1];
 	$nom = $ligne[0];
     $motPasseBdd = date('dmy', strtotime($DateEmbauche));
-	echo ''.$nom.''.$motPasseBdd.'';
+
+
+
 	if  ($motPasseSaisi==$motPasseBdd)
 	// Le mot de passe est diff�rent de celui de la base utilisateur
 	{
-        echo "bienvenu dans la page";
-		$_SESSION['nom']=$_POST['denomination'];
-		echo $_SESSION['nom'];
-		// On quitte le script courant sans effectuer les �ventuelles instructions qui suivent
+		$_SESSION['nom']=$nom;
+		header("Location:test.php");
 	}
 	else
 	// Le mot de passe saisi correspond � celui de la base utilisateur
@@ -38,6 +40,5 @@
 
 
 	}
-
 	// on ferme la connexion au SGBD
 ?>

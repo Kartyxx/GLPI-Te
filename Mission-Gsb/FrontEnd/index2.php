@@ -6,12 +6,12 @@
 
 <body>
 <?php
-  include 'GSB_UpperBody.php';
+  include 'include/GSB_UpperBody.php';
 ?> 
 <div id="connexion">
 <h1>Connexion</h1>
 
-<form method="post" name="inscription" action="identification.php" onSubmit="return verifChamps()">
+<form method="post" name="inscription" action="../BackEnd/identification.php" onSubmit="return verifChamps()">
         <p align="center">
             <input type="text" name="denomination" id="denomination" maxlength="25" placeholder="Identifiant"><br/><br/>
 
@@ -21,7 +21,6 @@
 
   <p align="center"> 
     <input type="submit" name="envoi" value="Connexion"><br/><br/>
-    <input type="reset" name="annulation" value="Annuler"><br/><br/>
 
     Vous rencontrez un problème ?
     Cliquez <a href="#">ici</a>.
@@ -31,7 +30,7 @@
 </div>
 
 <?php
-  include 'GSB_LowerBody.php';
+  include 'include/GSB_LowerBody.php';
 ?>
 
 </body>
