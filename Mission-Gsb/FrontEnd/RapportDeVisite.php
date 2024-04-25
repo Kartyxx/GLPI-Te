@@ -46,6 +46,35 @@
 
   	<br />
 
+
+    <label for="medicaments">Choisissez un médicament :</label>
+    <select id="medicament" name="medicament[]" multiple style="width: 200px; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; appearance: none; background-color: #fff; background-image: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12px" height="12px"><path d="M5 10l8 8 8-8z"/></svg>'); background-repeat: no-repeat; background-position: right 10px top 50%; font-size: 14px;">
+        <option value="ADIMOL">ADIMOL</option>
+        <option value="AMOPIL">AMOPIL</option>
+        <option value="AMOXAR">AMOXAR</option>
+        <option value="AMOXI Gé">AMOXI Gé</option>
+        <option value="APATOUX Vitamine C">APATOUX Vitamine C</option>
+        <option value="BACTIGEL">BACTIGEL</option>
+        <option value="BACTIVIL">BACTIVIL</option>
+        <option value="BIVALIC">BIVALIC</option>
+        <option value="CARTION">CARTION</option>
+        <option value="CLAZER">CLAZER</option>
+        <option value="DEPRAMIL">DEPRAMIL</option>
+        <option value="DIMIRTAM">DIMIRTAM</option>
+        <option value="DOLORIL">DOLORIL</option>
+        <option value="EQUILAR">EQUILAR</option>
+        <option value="EVEILLOR">EVEILLOR</option>
+        <option value="INSECTIL">INSECTIL</option>
+        <option value="JOVENIL">JOVENIL</option>
+        <option value="LIDOXYTRACINE">LIDOXYTRACINE</option>
+        <option value="LITHORINE">LITHORINE</option>
+        <option value="NORMADOR">NORMADOR</option>
+        <option value="PHYSICOR">PHYSICOR</option>
+        <option value="PIRIZAN">PIRIZAN</option>
+        <option value="POMADINE">POMADINE</option>
+        <option value="TOUXISOL Vitamine C">TOUXISOL Vitamine C</option>
+    </select>
+
   	<fieldset class="separateur"><legend class="legende">Infos classe</legend>
         <p class="contenu">
         <label for="rapBilan">Bilan du Rapport</label>
