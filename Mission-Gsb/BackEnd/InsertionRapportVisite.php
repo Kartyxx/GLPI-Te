@@ -16,27 +16,23 @@
     include("include/connexionBdd.php");
 
 	$matricule="";  
-    $rapNum="";
     $praNum="";
     $rapDate="";
     $rapBilan="";
     $rapMotif="";
 
 
-    $matricule = $_POST["matricule"];
-    $rapNum = $_POST["rapNum"];
+    $matricule = $_SESSION['num'];
     $praNum = $_POST["praNum"];
     $rapDate = date('Y-m-d');
     $rapBilan = $_POST["rapBilan"];
     $rapMotif = $_POST["rapMotif"];
 
-    // Convertir la date de naissance au format aaaa-mm-jj
-    $rapDate = substr($rapDate,6,4) . "-" . substr($rapDate,3,2) . "-" . substr($rapDate,0,2);
 
 
 
-	$reqSQL = "INSERT INTO rapportvisite (visMatricule, rapNum, praNum, rapDate, rapBilan, rapMotif)
-    VALUES ('$matricule', '$rapNum', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif')";
+	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif)
+    VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif')";
 
 
 

@@ -29,13 +29,9 @@
          <table>
             <tr>
               <td><label for="matricule">Matricule de visite: </label></td>
-              <td><input type="text" id="matricule" name="matricule" maxlength="15" size="25" /></td>
+              <td><?php echo $_SESSION['num']; ?> </td>
             </tr>
-
             <tr>
-              <td><label for="rapNum">Numero de Rapport de Visite :</label></td>
-              <td><input type="text" id="rapNum" name="rapNum" maxlength="5" size="5" /></td>
-            </tr><tr>
               <td><label for="praNum">Numero du Practitien :</label></td>
               <td><input type="text" id="praNum" name="praNum" maxlength="5" size="5" /></td>
             </tr>
@@ -43,7 +39,7 @@
             <tr>
               <td><label for="rapDate">Date du Rapport : </label>
                   <span class="note"><br />(format jj/mm/aaaa)</span></td>
-              <td><input type="text" id="rapDate" name="rapDate" maxlength="10" size="15" /></td>
+              <td><?php echo $date = date("Y-m-d"); ?></td>
             </tr>
           </table>
   	</fieldset>

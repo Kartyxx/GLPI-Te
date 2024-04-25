@@ -15,12 +15,12 @@
 	$motPasseSaisi = $_POST['mot'];
 
 // On r�cup�re dans la base de donn�es le mot de passe qui correspond au nom saisi par le visiteur
-	$sql = "SELECT visNom, visDateembauche FROM collaborateurs WHERE visNom ='$nomSaisi'";
+	$sql = "SELECT visNom, motDePasse, visMatricule FROM collaborateurs WHERE visNom ='$nomSaisi'";
 	$res = $connexion->query($sql);
 	$ligne = $res->fetch();
-	$DateEmbauche = $ligne[1];
+	$numVititeur= $ligne[2];
+	$motPasseBdd = $ligne[1];
 	$nom = $ligne[0];
-    $motPasseBdd = date('dmy', strtotime($DateEmbauche));
 
 
 
@@ -28,6 +28,7 @@
 	// Le mot de passe est diff�rent de celui de la base utilisateur
 	{
 		$_SESSION['nom']=$nom;
+		$_SESSION['num']=$numVititeur;
 		header("Location:test.php");
 	}
 	else
@@ -38,7 +39,7 @@
         echo "Votre saisie est erronée, Recommencez SVP..."; 
 
 
-
 	}
+
 	// on ferme la connexion au SGBD
 ?>

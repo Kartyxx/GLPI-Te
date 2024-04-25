@@ -23,7 +23,7 @@
     $rapMotif="";
 
 
-    $matricule = $_POST["matricule"];
+    $matricule = $_SESSION['num'];
     $rapNum = $_POST["rapNum"];
     $praNum = $_POST["praNum"];
     $rapDate = $_POST["rapDate"];
