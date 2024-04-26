@@ -30,7 +30,6 @@
 
 
 
-
 	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif)
     VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif')";
 

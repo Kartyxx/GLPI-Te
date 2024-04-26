@@ -27,6 +27,11 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `collaborateurs`
 --
+DROP DATABASE IF EXISTS `gsb-cr`;
+CREATE DATABASE IF NOT EXISTS `gsb-cr`;
+USE `gsb-cr`;
+
+
 
 CREATE TABLE `collaborateurs` (
   `visMatricule` varchar(10) NOT NULL,
