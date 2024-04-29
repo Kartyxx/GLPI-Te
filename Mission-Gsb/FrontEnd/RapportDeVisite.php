@@ -79,10 +79,12 @@
     $ligne = $result->fetch();
     while ($ligne!= false)
     { 
+
     $id= $ligne["medDepotLegal"]; 
     $lib= $ligne["medNomcommercial"]; 
     echo "<option value='$id'>$lib</option>";
     $ligne = $result->fetch();
+    
     }
     ?>
     </select>
@@ -95,7 +97,7 @@
                 Rentrez votre rapport de Bilan
             </textarea>
         </p>
-        
+
         <p class="contenu">
         <label for="rapMotif">Motif du Rapport</label>
         <select name="motif_visite">
