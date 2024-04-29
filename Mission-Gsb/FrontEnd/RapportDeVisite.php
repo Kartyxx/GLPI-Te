@@ -35,12 +35,15 @@
               <td><?php echo $_SESSION['num']; ?> </td>
             </tr>
     <label for="praNum">Practitien :</label>
-    <select id="praticien" name="classe">
+
+
+    <select id="praticien" name="praticien">
     <?php
 
     $reqSQL2 = "select praPrenom, praNom, praNum from praticien";
     $resultP=$connexion->query($reqSQL2);
     $ligneP = $resultP->fetch();
+
     while ($ligneP!= false)
     { 
     $idP= $ligneP["praNum"]; 
@@ -49,6 +52,9 @@
     echo "<option value='$idP'>$libP $libN</option>";
     $ligneP = $resultP->fetch();
     }
+
+
+
     ?>
     </select>
 
@@ -65,7 +71,7 @@
 
 
     <label for="medicaments">Choisissez un médicament :</label>
-    <select id="medicament" name="classe">
+    <select id="medicament" name="medicament">
     <?php
 
     $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
@@ -89,6 +95,7 @@
                 Rentrez votre rapport de Bilan
             </textarea>
         </p>
+        
         <p class="contenu">
         <label for="rapMotif">Motif du Rapport</label>
         <select name="motif_visite">
