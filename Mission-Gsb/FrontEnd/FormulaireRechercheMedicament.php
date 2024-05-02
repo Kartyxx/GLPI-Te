@@ -16,6 +16,9 @@
 </head>
 
 <body>
+<?php
+	include("include/GSB_UpperBody.php");
+	?>
   <table   style="width: 100%">
     <tr>
       <td style="width: 50%; text-align: right;"><h1>Recherche de Medicament&nbsp;&nbsp;</h1></td>

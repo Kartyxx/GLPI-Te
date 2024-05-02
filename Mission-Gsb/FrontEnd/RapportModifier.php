@@ -53,7 +53,25 @@
    
 
 
-    <label for="medicaments">Choisissez un médicament :</label>
+    <label for="medicaments">Médicament 1 :</label>
+    <select id="medicament" name="classe">
+    <?php
+
+    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
+    $result=$connexion->query($reqSQL1);
+    $ligne = $result->fetch();
+    while ($ligne!= false)
+    { 
+    $id= $ligne["medDepotLegal"]; 
+    $lib= $ligne["medNomcommercial"]; 
+    echo "<option value='$id'>$lib</option>";
+    $ligne = $result->fetch();
+    }
+    ?>
+
+
+    </select>
+    <label for="medicaments">Médicament 2 :</label>
     <select id="medicament" name="classe">
     <?php
 
@@ -80,14 +98,13 @@
         </p>
         <p class="contenu">
         <label for="rapMotif">Choisissez un motif de rapport:</label>
-
-<select name="rapMotif" id="rapMotif">
+        <select name="rapMotif" id="rapMotif">
   <option value="1">Périodicité </option>
   <option value="2">Chute de prescription</option>
   <option value="3">Nouveautés ou actualisations</option>
   <option value="4">Demande du médecin</option>
   <option value="5">autre</option>
-</select>
+</select> 
         </p>
   	</fieldset>
 

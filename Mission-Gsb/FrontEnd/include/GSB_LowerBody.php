@@ -8,6 +8,7 @@
 </head>
 
 <body>
-			
-		<div id="emblem"></div>
 	</div>
+	<div id="GSB_footer"></div>	
+</body>
+</html>

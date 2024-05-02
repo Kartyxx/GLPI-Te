@@ -1,30 +1,18 @@
 @font-face {
   font-family: "Inter";
-  src: url("/css/font/Inter-Regular.ttf") format("ttf");
+  src: url("font/Inter-Regular.ttf") format("ttf");
 }
 
-@media handled and (min-width: 800px) and (max-width: 1200px) {
-  #emblem {
-    display: none;
-  }
-  #emblemLight {
-    display: block;
-  }
-}
-
-body {
-  background-image: url("../css/images/GSB_background.png");
+.main_header {
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: top;
-  margin: auto;
-  font-family: "Inter", sans-serif;
-  color: white;
+  height: 112.5px;
+  border-radius: 0px 0px 0px 0px;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
 }
 
-.header {
+.login_header {
   background-size: auto;
   height: 120px;
   border-radius: 0px 0px 0px 0px;
@@ -32,7 +20,7 @@ body {
 }
 
 #logo {
-  background-image: url("../css/images/GSB_IMG_logo.png");
+  background-image: url("images/GSB_IMG_logo.png");
   position: absolute;
   height: 100px;
   width: 120px;
@@ -44,23 +32,124 @@ body {
   margin-left: 45%;
 }
 
-.WhiteBox {
+body {
+  background-image: url("images/GSB_background_general.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: top;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+body.login {
+  background: url("images/GSB_background_LOGIN.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: top;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.disconnect {
+  color: white;
+  text-decoration: none;
+}
+
+/********************************************************************************
+ *************************** * * * *MENU* * * * *********************************
+ ********************************************************************************/
+.GSB_menu {
+  position: fixed;
+  width: 15%;
+  top: 12%;
+  bottom: 0%;
+}
+
+.GSB_menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.GSB_menu a:hover {
+  background-color: #ccc;
+}
+
+.GSB_menu a.active {
+  background-color: #6f95ad;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.GSB_menu a:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/********************************************************************************
+ *************************** * * * *BODY* * * * *********************************
+ ********************************************************************************/
+
+.GSB_body {
   min-width: 450px;
   position: absolute;
-  padding-bottom: 5%;
-  left: 10%;
-  right: 10%;
-  bottom: 3%;
-  top: 14%;
-  background-color: #f5f4f2;
-  padding-top: 2%;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-width: 0.5ex;
+  left: 15%;
+  right: 0%;
+  top: 12%;
+  bottom: 0%;
+  background-color: #f0f0f0;
+  /*border-width: 0.5ex;
   border: solid;
-  border-color: black;
-  border-collapse: separate;
+  border-color:black;
+  border-collapse: separate;*/
+  opacity: 0.6;
 }
+
+#emblem {
+  background-image: url("images/GSB_IMG_emblem.png");
+  min-height: 220.5px;
+  min-width: 220.5px;
+  max-height: 441px;
+  max-width: 441px;
+  height: 441px;
+  width: 441px;
+  background-size: cover;
+  position: absolute;
+  align-items: center;
+  right: 50%;
+  left: 59.5%;
+  top: 20%;
+  bottom: 45%;
+}
+
+#emblemLight {
+  background-image: url("images/GSB_IMG_emblem.png");
+  min-height: 220.5px;
+  min-width: 220.5px;
+  height: 220.5px;
+  width: 220.5px;
+  background-size: cover;
+  position: absolute;
+  align-items: center;
+  right: 50%;
+  left: 59.5%;
+  top: 20%;
+  bottom: 45%;
+}
+
+/********************************************************************************
+ ************************** * * * *LOGIN* * * * *********************************
+ ********************************************************************************/
 
 #connexion {
   position: absolute;
@@ -80,38 +169,6 @@ body {
   min-width: 400px;
 }
 
-#emblem {
-  background-image: url("../css/images/GSB_IMG_emblem.png");
-  min-height: 220.5px;
-  min-width: 220.5px;
-  max-height: 441px;
-  max-width: 441px;
-  height: 441px;
-  width: 441px;
-  background-size: cover;
-  position: absolute;
-  align-items: center;
-  right: 50%;
-  left: 59.5%;
-  top: 20%;
-  bottom: 45%;
-}
-
-#emblemLight {
-  background-image: url("../css/images/GSB_IMG_emblem.png");
-  min-height: 220.5px;
-  min-width: 220.5px;
-  height: 220.5px;
-  width: 220.5px;
-  background-size: cover;
-  position: absolute;
-  align-items: center;
-  right: 50%;
-  left: 59.5%;
-  top: 20%;
-  bottom: 45%;
-}
-
 #connexion input[type="submit"],
 input[type="reset"] {
   background-color: #6f95ad;
@@ -123,7 +180,7 @@ input[type="reset"] {
   margin: 4px 2px;
   cursor: pointer;
   font-size: 1.2rem;
-  min-width: 390.44px;
+  min-width: 490px;
 }
 
 #connexion h1 {
@@ -131,14 +188,14 @@ input[type="reset"] {
 }
 
 #connexion input[type="text"] {
-  background-image: url("../css/images/GSB_IMG_ident.png");
+  background-image: url("images/GSB_IMG_ident.png");
   background-repeat: no-repeat;
   background-position: 10% 50%;
   background-size: 7%;
 }
 
 #connexion input[type="password"] {
-  background-image: url("../css/images/GSB_IMG_psswd.png");
+  background-image: url("images/GSB_IMG_psswd.png");
   background-repeat: no-repeat;
   background-position: 10% 50%;
   background-size: 7%;
@@ -147,8 +204,8 @@ input[type="reset"] {
 #connexion input[type="text"],
 input[type="password"] {
   color: #000000;
-  padding: 6px 100px;
-  max-width: 390px;
+  padding: 8px 100px;
+  max-width: 490px;
   font-size: 1.6rem;
   left: 10%;
 }
@@ -157,4 +214,22 @@ input[type="password"] {
 input[type="password"]::placeholder {
   opacity: 0.5;
   text-size-adjust: 10%;
+}
+
+.connexion_body {
+  min-width: 450px;
+  position: absolute;
+  padding-bottom: 5%;
+  left: 10%;
+  right: 10%;
+  bottom: 3%;
+  top: 14%;
+  background-color: #f5f4f2;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-width: 0.5ex;
+  border: solid;
+  border-color: black;
+  border-collapse: separate;
 }

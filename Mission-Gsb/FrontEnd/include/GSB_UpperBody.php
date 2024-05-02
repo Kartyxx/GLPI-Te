@@ -8,8 +8,20 @@
 </head>
 
 <body>
-	<div class="header">
+
+	<div class="main_header">
   	<div id="logo"></div>
+  	<div id="disconnect">
+  	<a href="login.php">Connexion</a>
+  	</div>
 	</div>
-	
-	<div class="WhiteBox">
+	<div class = "GSB_menu">
+		<div class="under_menu">
+			<a href="#" class="active">Menu - GSB</a>
+			<a href="RapportDeVisite.php">Saisie de rapports</a>
+			<a href="FormulaireRechercheMedicament.php">Recherche de médicament</a>
+			<a href="RapportModifier.php">Modification de rapports</a>
+		</div>
+	</div>
+	<div class = "GSB_body">
+</body>
