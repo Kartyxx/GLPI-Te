@@ -28,7 +28,7 @@
     $praNum = $_POST["praNum"];
     $rapDate = $_POST["rapDate"];
     $rapBilan = $_POST["rapBilan"];
-    $rapMotif = $_POST["rapMotif"];
+    $rapMotif = $_POST["motif_visite"];
 
     // Convertir la date de naissance au format aaaa-mm-jj
     $rapDate = substr($rapDate,6,4) . "-" . substr($rapDate,3,2) . "-" . substr($rapDate,0,2);

@@ -23,17 +23,19 @@
 
 
     $matricule = $_SESSION['num'];
-    $praNum = $_POST["praNum"];
+
+    $praNum = $_POST['praticien'];
     $rapDate = date('Y-m-d');
     $rapBilan = $_POST["rapBilan"];
-    $rapMotif = $_POST["rapMotif"];
+    $rapMotif = $_POST["motif_visite"];
+    $medicament = $_POST["medicament"];
 
 
 
-	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif)
-    VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif')";
+	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif, medicament)
+    VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif', '$medicament')";
 
-
+    
 
 
     // Affichage de la requ�te dans la fen�tre du navigateur

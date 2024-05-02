@@ -11,6 +11,7 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
+  <meta charset="utf-8">
 	<title>Inscription</title >
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link rel="stylesheet" type="text/css" href="css/cssGeneral.css"></link>
@@ -36,14 +37,33 @@
               <td><label for="matricule">Matricule de visite: </label></td>
               <td><?php echo $_SESSION['num']; ?> </td>
             </tr>
-            <tr>
-              <td><label for="praNum">Practitien :</label></td>
-              <td><input type="text" id="praNum" name="praNum" maxlength="5" size="5" /></td>
-            </tr>
+    <label for="praNum">Practitien :</label>
+
+
+    <select id="praticien" name="praticien">
+    <?php
+
+    $reqSQL2 = "select praPrenom, praNom, praNum from praticien";
+    $resultP=$connexion->query($reqSQL2);
+    $ligneP = $resultP->fetch();
+
+    while ($ligneP!= false)
+    { 
+    $idP= $ligneP["praNum"]; 
+    $libP= $ligneP["praPrenom"]; 
+    $libN= $ligneP['praNom'];
+    echo "<option value='$idP'>$libP $libN</option>";
+    $ligneP = $resultP->fetch();
+    }
+
+
+
+    ?>
+    </select>
 
             <tr>
               <td><label for="rapDate">Date du Rapport : </label>
-                  <span class="note"><br />(format jj/mm/aaaa)</span></td>
+                  <span class="note"><br /></span></td>
               <td><?php echo $date = date("Y-m-d"); ?></td>
             </tr>
           </table>
@@ -54,7 +74,7 @@
 
 
     <label for="medicaments">Choisissez un médicament :</label>
-    <select id="medicament" name="classe">
+    <select id="medicament" name="medicament">
     <?php
 
     $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
@@ -62,10 +82,12 @@
     $ligne = $result->fetch();
     while ($ligne!= false)
     { 
+
     $id= $ligne["medDepotLegal"]; 
     $lib= $ligne["medNomcommercial"]; 
     echo "<option value='$id'>$lib</option>";
     $ligne = $result->fetch();
+    
     }
     ?>
     </select>
@@ -78,7 +100,9 @@
                 Rentrez votre rapport de Bilan
             </textarea>
         </p>
+
         <p class="contenu">
+<<<<<<< HEAD
         <label for="rapMotif">Choisissez un motif de rapport:</label>
 
 <select name="rapMotif" id="rapMotif">
@@ -88,6 +112,17 @@
   <option value="4">Demande du médecin</option>
   <option value="5">autre</option>
 </select>
+=======
+        <label for="rapMotif">Motif du Rapport</label>
+        <select name="motif_visite">
+  <option value="periodicite">Périodicité</option>
+  <option value="nouveautes_actualisations">Nouveautés ou actualisations</option>
+  <option value="remontage">Remontage</option>
+  <option value="demande_medecin">Demande du médecin</option>
+  <option value="autre">Autre</option>
+</select>
+
+>>>>>>> 43436f2e5c22b764dcb14e580dd07a3406188313
         </p>
   	</fieldset>
 
