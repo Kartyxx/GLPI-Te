@@ -23,11 +23,21 @@
 	?>
  <?php 
  $matricule=$_SESSION['num'];
- $reqSQL = "SELECT 	rapNum, visMatricule, praNum, rapDate, rapBilan, rapMotif
+ $reqSQL = "SELECT 	rapNum, visMatricule, praNum, rapDate, rapBilan, idMotif
  From rapportvisite 
  Where visMatricule ='$matricule'";
+
  $result = $connexion->query($reqSQL);
  $ligne = $result->fetch();
+ $rapid=$ligne[5];
+
+ $reqSQL1 = "SELECT Motiflibelle 
+ From motifrapport m, rapportvisite r
+ where m.Motifid = r.idMotif
+ AND m.Motifid ='$rapid'";
+ $result1 = $connexion->query($reqSQL1);
+ $ligne1 = $result1->fetch();
+
 
  echo "<table border='1'>";
  echo "<tr><th>Numero du rapport</th><th>Numéro de matricule</th><th>Numéro du practitien</th><th>Date du rapport</th><th>billan du rapport</th><th>Motif du rapport</th></tr>";
@@ -40,7 +50,7 @@
   $praNum=$ligne[2];
   $rapDate=$ligne[3];
   $rapBilan=$ligne[4];
-  $rapMotif=$ligne[5];
+  $rapMotif=$ligne1[0];
   
 
 
@@ -51,13 +61,10 @@
   echo "<td>".$rapDate."</td>";
   echo "<td>".$rapBilan."</td>";
   echo "<td>".$rapMotif."</td>";
+  echo "<td>"."<a href='RapportModifier1.php?rapNum=".$rapNum."'>"."Modifier</a>"."</tq>";
   echo "</tr>";
 
   $ligne = $result->fetch();
-
-
-
-
 
  }
  ?>

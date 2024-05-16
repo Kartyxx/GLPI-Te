@@ -24,5 +24,9 @@
     echo "Bienvenu ".$_SESSION['nom']." votre numero de visiteur est le ".$_SESSION['num'];
 ?></p>
 	
+
+<?php
+  include 'include/GSB_LowerBody.php';
+?>
 </body>
 </html>

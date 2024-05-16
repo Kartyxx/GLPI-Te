@@ -15,43 +15,56 @@
 <?php
     include("include/connexionBdd.php");
 
+    
 	$matricule="";  
-    $rapNum="";
     $praNum="";
     $rapDate="";
     $rapBilan="";
     $rapMotif="";
+    $note = "";
+    $medicament1 = "";
+    $medicament2 ="";
+    $echantillon1 = "";
+    $echantillon2 = "";
 
-
+    $rapNum = $_POST['rapNum'];
     $matricule = $_SESSION['num'];
-    $rapNum = $_POST["rapNum"];
-    $praNum = $_POST["praNum"];
-    $rapDate = $_POST["rapDate"];
+    $praNum = $_POST['praNum'];
+    $rapDate = date('Y-m-d');
     $rapBilan = $_POST["rapBilan"];
-    $rapMotif = $_POST["motif_visite"];
+    $rapMotif = $_POST["rapMotif"];
+    $medicament1 = $_POST["medicament1"];
+    $medicament2 = $_POST["medicament2"];
+    $echantillon1 = $_POST["echantillon1"];
+    $echantillon2 = $_POST["echantillon2"];
+
+
+    for ($i = 1; $i <= 5; $i++) {
+        // Vérifiez si la case à cocher est cochée
+        if (isset($_POST['note' . $i])) {
+            // Si oui, attribuez la valeur de la case cochée à la variable de note sélectionnée
+            $noteSelectionnee = $_POST['note' . $i];
+            // Sortez de la boucle dès que vous avez trouvé la note cochée
+            break;
+        }
+    }
+
+
 
     // Convertir la date de naissance au format aaaa-mm-jj
-    $rapDate = substr($rapDate,6,4) . "-" . substr($rapDate,3,2) . "-" . substr($rapDate,0,2);
-
-
-
 	$reqSQL = "UPDATE rapportvisite
-    SET visMatricule = '$matricule',praNum='$praNum',rapDate='$rapDate ',rapBilan ='$rapBilan', rapMotif='$rapMotif'
+    SET visMatricule = '$matricule',praNum='$praNum',rapDate='$rapDate ',rapBilan ='$rapBilan', idMotif='$rapMotif',medicament1='$medicament1',echantillon1='$echantillon1',medicament2='$medicament2',echantillon2='$echantillon2', note ='$noteSelectionnee'
     WHERE rapNum = $rapNum";
 
-
-
-
-    // Affichage de la requ�te dans la fen�tre du navigateur
     echo $reqSQL ."<hr />";
 
 	// Ex�cution de la requ�te
 	$connexion->exec($reqSQL);
 
-	// Affichage d'un message d'information ainsi que le num�ro de l'�l�ve cr��
-	echo "Votre rapport a bien etait modifier";
+	// Affichage d'un message d'information ainsi que le num�ro de l'�l�ve cr�
 
-    
+    header("Location:../FrontEnd/index1.php");
+
 ?>
 </body>
 </html>

@@ -174,11 +174,11 @@
 
         <label for="rapMotif">Motif du Rapport</label>
         <select name="motif_visite">
-  <option value="1">Périodicité</option>
-  <option value="2">Nouveautés ou actualisations</option>
-  <option value="3">Remontage</option>
-  <option value="4">Demande du médecin</option>
-  <option value="5">Autre</option>
+  <option value="periodicite">Périodicité</option>
+  <option value="nouveautes_actualisations">Nouveautés ou actualisations</option>
+  <option value="remontage">Remontage</option>
+  <option value="demande_medecin">Demande du médecin</option>
+  <option value="autre">Autre</option>
 </select> 
 
 </p>

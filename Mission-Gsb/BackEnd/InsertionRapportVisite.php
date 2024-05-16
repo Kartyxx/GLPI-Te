@@ -41,7 +41,7 @@
 
 
 
-	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif,medicament1, medicament2, echantillon1, echantillon2, note)
+	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, idMotif,medicament1, medicament2, echantillon1, echantillon2, note)
     VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif','$medicament1','$medicament2','$echantillon2','$echantillon2', '$note')";
 
     
@@ -54,13 +54,9 @@
 	$connexion->exec($reqSQL);
 
 	// Affichage d'un message d'information ainsi que le num�ro de l'�l�ve cr��
-	echo "Votre rapport a bien etait creer";
+	header("Location:../FrontEnd/index1.php");
 
-    echo $medicament1."     ";
-    echo $medicament2."     "; 
-    echo $note."     ";
-    echo $echantillon1."     "; 
-    echo $echantillon2."     ";
+
 
 
 

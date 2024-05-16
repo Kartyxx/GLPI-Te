@@ -3,8 +3,8 @@
 <head>
 	<title>Login - GSB</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <link rel="stylesheet" type="text/css" href="../css/GSB_general.css"></link>
-  <script type="text/javascript" language="JavaScript" src="includes/controleFormulaire.js"></script> 
+  <link rel="stylesheet" type="text/css" href="css/GSB_general.css"></link>
+  <script type="text/javascript" language="JavaScript" src="../includes/controleFormulaire.js"></script> 
 </head>
 
 <body class="login">
@@ -26,7 +26,7 @@
             }
           </script>
           <h1>Connexion</h1>
-          <form method="post" name="inscription" action="../BackEnd/identification.php" onSubmit="return verifChamps()">
+          <form method="post" name="inscription" action="BackEnd/identification.php" onSubmit="return verifChamps()">
                   <p align="center">
                       <input type="text" name="denomination" id="denomination" maxlength="25" placeholder="Identifiant"><br/><br/>
 
