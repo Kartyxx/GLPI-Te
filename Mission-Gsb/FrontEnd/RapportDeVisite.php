@@ -108,11 +108,46 @@
     ?>
     </select>
     
+    <br><br>
+    
+
+    <label for="echantillon1">echantillon 1 :</label>
+    <select id="echantillon1" name="echantillon1">
+    <?php
+
+    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
+    $result=$connexion->query($reqSQL1);
+    $ligne = $result->fetch();
+    while ($ligne!= false)
+    { 
+    $id= $ligne["medDepotLegal"]; 
+    $lib= $ligne["medNomcommercial"]; 
+    echo "<option value='$id'>$lib</option>";
+    $ligne = $result->fetch();
+    }
+    ?>
 
 
+    </select>
+    <label for="echantillon2">echantillon 2 :</label>
+    <select id="echantillon2" name="echantillon2">
+    <?php
+
+    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
+    $result=$connexion->query($reqSQL1);
+    $ligne = $result->fetch();
+    while ($ligne!= false)
+    { 
+    $id= $ligne["medDepotLegal"]; 
+    $lib= $ligne["medNomcommercial"]; 
+    echo "<option value='$id'>$lib</option>";
+    $ligne = $result->fetch();
+    }
+    ?>
+    </select>
 
 
-
+    
 
   	<fieldset class="separateur"><legend class="legende">Infos classe</legend>
 
@@ -144,75 +179,9 @@
   <option value="remontage">Remontage</option>
   <option value="demande_medecin">Demande du médecin</option>
   <option value="autre">Autre</option>
-</select>
+</select> 
 
-        </p>
-
-        
-        <button type="button" id="boutonMenu">Afficher les options</button>
-
-<div id="options" style="display: none;">
-  <?php
-  // Liste des noms des médicaments
-  $medicaments = array(
-    "TRIMYCINE",
-    "ADIMOL",
-    "AMOPIL",
-    "AMOXAR",
-    "AMOXI Gé",
-    "APATOUX Vitamine C",
-    "BACTIGEL",
-    "BACTIVIL",
-    "BIVALIC",
-    "CARTION",
-    "CLAZER",
-    "DEPRAMIL",
-    "DIMIRTAM",
-    "DOLORIL",
-    "NORMADOR",
-    "EQUILAR",
-    "EVEILLOR",
-    "INSECTIL",
-    "JOVENIL",
-    "LIDOXYTRACINE",
-    "LITHORINE",
-    "PARMOCODEINE",
-    "PHYSICOR",
-    "PIRIZAN",
-    "POMADINE"
-  );
-
-  // Générer les cases à cocher pour chaque médicament
-  foreach ($medicaments as $index => $medicament) {
-    $id = "option" . ($index + 1); // Générer un ID unique pour chaque case à cocher
-    echo '<input type="checkbox" id="' . htmlspecialchars($id) . '" name="' . htmlspecialchars($medicament) . '">';
-    echo '<label for="' . htmlspecialchars($id) . '">' . htmlspecialchars($medicament) . '</label><br>';
-  }
-  ?>
-</div>
-
-<!-- Script JavaScript pour afficher les options -->
-<script>
-  // Récupérer le bouton et la div contenant les options
-  var boutonMenu = document.getElementById("boutonMenu");
-  var optionsDiv = document.getElementById("options");
-  
-  // Cacher la div d'options initialement
-  optionsDiv.style.display = "none";
-  
-  // Ajouter un événement de clic sur le bouton
-  boutonMenu.addEventListener("click", function() {
-    // Si la div d'options est cachée, l'afficher; sinon, la cacher
-    if (optionsDiv.style.display === "none") {
-      optionsDiv.style.display = "block";
-      boutonMenu.textContent = "Cacher les options";
-    } else {
-      optionsDiv.style.display = "none";
-      boutonMenu.textContent = "Afficher les options";
-    }
-  });
-</script>
-
+</p>
   	</fieldset>
 
 

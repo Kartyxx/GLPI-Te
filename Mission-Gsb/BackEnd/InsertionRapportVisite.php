@@ -21,7 +21,10 @@
     $rapBilan="";
     $rapMotif="";
     $note = "";
-    $valeurs_cochées = array();
+    $medicament1 = "";
+    $medicament2 ="";
+    $echantillon1 = "";
+    $echantillon2 = "";
 
     $matricule = $_SESSION['num'];
     $note = $_POST["note"];
@@ -29,13 +32,17 @@
     $rapDate = date('Y-m-d');
     $rapBilan = $_POST["rapBilan"];
     $rapMotif = $_POST["motif_visite"];
+    $medicament1 = $_POST["medicament1"];
+    $medicament2 = $_POST["medicament2"];
+    $echantillon1 = $_POST["echantillon1"];
+    $echantillon2 = $_POST["echantillon2"];
 
 
 
 
 
-	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif, medicament)
-    VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif', '$medicament')";
+	$reqSQL = "INSERT INTO rapportvisite (visMatricule, praNum, rapDate, rapBilan, rapMotif,medicament1, medicament2, echantillon1, echantillon2, note)
+    VALUES ('$matricule', '$praNum', '$rapDate' , '$rapBilan', '$rapMotif','$medicament1','$medicament2','$echantillon2','$echantillon2', '$note')";
 
     
 
@@ -51,7 +58,12 @@
 
     echo $medicament1."     ";
     echo $medicament2."     "; 
-    echo $note;
+    echo $note."     ";
+    echo $echantillon1."     "; 
+    echo $echantillon2."     ";
+
+
+
 
 
 ?>

@@ -251,7 +251,12 @@ CREATE TABLE `rapportvisite` (
   `praNum` int(11) NOT NULL,
   `rapDate` datetime DEFAULT NULL,
   `rapBilan` varchar(255) DEFAULT NULL,
-  `rapMotif` varchar(255) DEFAULT NULL
+  `rapMotif` varchar(255) DEFAULT NULL,
+  `medicament1` varchar(10) DEFAULT NULL,
+  `medicament2` varchar(10) DEFAULT NULL,
+  `echantillon1` varchar(10) DEFAULT NULL,
+  `echantillon2` varchar(10) DEFAULT NULL,
+  `note` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -302,7 +307,12 @@ ALTER TABLE `rapportvisite`
 --
 ALTER TABLE `rapportvisite`
   ADD CONSTRAINT `FK_praNum` FOREIGN KEY (`praNum`) REFERENCES `praticien` (`praNum`),
-  ADD CONSTRAINT `FK_visMatricule` FOREIGN KEY (`visMatricule`) REFERENCES `collaborateurs` (`visMatricule`);
+  ADD CONSTRAINT `FK_visMatricule` FOREIGN KEY (`visMatricule`) REFERENCES `collaborateurs` (`visMatricule`),
+  ADD CONSTRAINT ck_note CHECK (note BETWEEN 1 AND 5),
+  ADD CONSTRAINT `FK_medicament1` FOREIGN KEY (`medicament1`) REFERENCES `medicament` (`medDepotlegal`),
+  ADD CONSTRAINT `FK_medicament2` FOREIGN KEY (`medicament2`) REFERENCES `medicament` (`medDepotlegal`),
+  ADD CONSTRAINT `FK_echantillon1` FOREIGN KEY (`echantillon1`) REFERENCES `medicament` (`medDepotlegal`),
+  ADD CONSTRAINT `FK_echantillon2` FOREIGN KEY (`echantillon2`) REFERENCES `medicament` (`medDepotlegal`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
