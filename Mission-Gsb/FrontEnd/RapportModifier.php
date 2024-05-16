@@ -21,97 +21,47 @@
 <?php
 	include("include/GSB_UpperBody.php");
 	?>
-  <table   style="width: 100%">
-    <tr>
-      <td style="width: 50%; text-align: right;"><h1>Rapport Visite&nbsp;&nbsp;</h1></td>
-    </tr>
-  </table>
+ <?php 
+ $matricule=$_SESSION['num'];
+ $reqSQL = "SELECT 	rapNum, visMatricule, praNum, rapDate, rapBilan, rapMotif
+ From rapportvisite 
+ Where visMatricule ='$matricule'";
+ $result = $connexion->query($reqSQL);
+ $ligne = $result->fetch();
 
-  <p><br /></p>
-  <form name="inscription" action="../BackEnd/InsertionRapportVisite.php" method ="post">
-
-  	<fieldset class="separateur"><legend class="legende">Infos personnelles</legend>
-         <table>
-            <tr>
-              <td><label for="matricule">Matricule de visite: </label></td>
-              <td><?php echo $_SESSION['num']; ?> </td>
-            </tr>
-            <tr>
-              <td><label for="praNum">Practitien :</label></td>
-              <td><input type="text" id="praNum" name="praNum" maxlength="5" size="5" /></td>
-            </tr>
-
-            <tr>
-              <td><label for="rapDate">Date du Rapport : </label>
-                  <span class="note"><br />(format jj/mm/aaaa)</span></td>
-              <td><?php echo $date = date("Y-m-d"); ?></td>
-            </tr>
-          </table>
-  	</fieldset>
-
-  	<br />
-   
+ echo "<table border='1'>";
+ echo "<tr><th>Numero du rapport</th><th>Numéro de matricule</th><th>Numéro du practitien</th><th>Date du rapport</th><th>billan du rapport</th><th>Motif du rapport</th></tr>";
 
 
-    <label for="medicaments">Médicament 1 :</label>
-    <select id="medicament" name="classe">
-    <?php
+ while ($ligne!=false){
 
-    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
-    $result=$connexion->query($reqSQL1);
-    $ligne = $result->fetch();
-    while ($ligne!= false)
-    { 
-    $id= $ligne["medDepotLegal"]; 
-    $lib= $ligne["medNomcommercial"]; 
-    echo "<option value='$id'>$lib</option>";
-    $ligne = $result->fetch();
-    }
-    ?>
+  $rapNum =$ligne[0];  
+	$matricule=$ligne[1];  
+  $praNum=$ligne[2];
+  $rapDate=$ligne[3];
+  $rapBilan=$ligne[4];
+  $rapMotif=$ligne[5];
+  
 
 
-    </select>
-    <label for="medicaments">Médicament 2 :</label>
-    <select id="medicament" name="classe">
-    <?php
+  echo "<tr>";
+  echo "<td>".$rapNum."</td>";
+  echo "<td>".$matricule."</td>";
+  echo "<td>".$praNum."</td>";
+  echo "<td>".$rapDate."</td>";
+  echo "<td>".$rapBilan."</td>";
+  echo "<td>".$rapMotif."</td>";
+  echo "</tr>";
 
-    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
-    $result=$connexion->query($reqSQL1);
-    $ligne = $result->fetch();
-    while ($ligne!= false)
-    { 
-    $id= $ligne["medDepotLegal"]; 
-    $lib= $ligne["medNomcommercial"]; 
-    echo "<option value='$id'>$lib</option>";
-    $ligne = $result->fetch();
-    }
-    ?>
-    </select>
+  $ligne = $result->fetch();
+
+
+
+
+
+ }
+ ?>
     
-
-  	<fieldset class="separateur"><legend class="legende">Infos classe</legend>
-        <p class="contenu">
-        <label for="rapBilan">Bilan du Rapport</label>
-            <textarea id="rapBilan" name="rapBilan" rows="5" cols="33">
-                Rentrez votre rapport de Bilan
-            </textarea>
-        </p>
-        <p class="contenu">
-        <label for="rapMotif">Choisissez un motif de rapport:</label>
-        <select name="rapMotif" id="rapMotif">
-  <option value="1">Périodicité </option>
-  <option value="2">Chute de prescription</option>
-  <option value="3">Nouveautés ou actualisations</option>
-  <option value="4">Demande du médecin</option>
-  <option value="5">autre</option>
-</select> 
-        </p>
-  	</fieldset>
-
-  	<p>
-  		<input class="bouton" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
-        <input class="bouton" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
-  	</p>
   </form>
 </body>
 </html>
