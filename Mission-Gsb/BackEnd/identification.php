@@ -15,7 +15,7 @@
 	$motPasseSaisi = $_POST['mot'];
 
 // On r�cup�re dans la base de donn�es le mot de passe qui correspond au nom saisi par le visiteur
-	$sql = "SELECT visNom, motDePasse, visMatricule FROM collaborateurs WHERE visNom ='$nomSaisi'";
+	$sql = "select visNom, motDePasse, visMatricule from collaborateurs where visNom ='$nomSaisi'";
 	$res = $connexion->query($sql);
 	$ligne = $res->fetch();
 	$numVititeur= $ligne[2];

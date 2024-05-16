@@ -1,8 +1,8 @@
 <?php
 	// D�finitions de constantes pour la connexion � MySQL
 	$hote= "localhost";
-	$login= "root";
-	$mdp="";
+	$login= "adminclem";
+	$mdp="Azerty31";
 	$nombd="gsb-cr";
 
 	// Connection au serveur

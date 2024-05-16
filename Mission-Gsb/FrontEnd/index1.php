@@ -17,7 +17,7 @@
 		include('include/GSB_UpperBody.php');
 	?>
 
-	<h1 align="center">Bienvenue chez GSB</h1>
+	<h1 align="center">Le rapport a était saisit corréctement</h1>
 
 	<h2></h2>
 	<p><?php
