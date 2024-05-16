@@ -20,15 +20,17 @@
     $rapDate="";
     $rapBilan="";
     $rapMotif="";
-
+    $note = "";
+    $valeurs_cochées = array();
 
     $matricule = $_SESSION['num'];
-
+    $note = $_POST["note"];
     $praNum = $_POST['praticien'];
     $rapDate = date('Y-m-d');
     $rapBilan = $_POST["rapBilan"];
     $rapMotif = $_POST["motif_visite"];
-    $medicament = $_POST["medicament"];
+
+
 
 
 
@@ -47,7 +49,11 @@
 	// Affichage d'un message d'information ainsi que le num�ro de l'�l�ve cr��
 	echo "Votre rapport a bien etait creer";
 
-    
+    echo $medicament1."     ";
+    echo $medicament2."     "; 
+    echo $note;
+
+
 ?>
 </body>
 </html>

@@ -73,8 +73,8 @@
    
 
 
-    <label for="medicaments">Choisissez un médicament :</label>
-    <select id="medicament" name="medicament">
+    <label for="medicament1">Médicament 1 :</label>
+    <select id="medicament1" name="medicament1">
     <?php
 
     $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
@@ -82,18 +82,52 @@
     $ligne = $result->fetch();
     while ($ligne!= false)
     { 
-
     $id= $ligne["medDepotLegal"]; 
     $lib= $ligne["medNomcommercial"]; 
     echo "<option value='$id'>$lib</option>";
     $ligne = $result->fetch();
-    
+    }
+    ?>
+
+
+    </select>
+    <label for="medicament2">Médicament 2 :</label>
+    <select id="medicament2" name="medicament2">
+    <?php
+
+    $reqSQL1 = "select medNomcommercial, medDepotLegal  from medicament";
+    $result=$connexion->query($reqSQL1);
+    $ligne = $result->fetch();
+    while ($ligne!= false)
+    { 
+    $id= $ligne["medDepotLegal"]; 
+    $lib= $ligne["medNomcommercial"]; 
+    echo "<option value='$id'>$lib</option>";
+    $ligne = $result->fetch();
     }
     ?>
     </select>
     
 
+
+
+
+
+
   	<fieldset class="separateur"><legend class="legende">Infos classe</legend>
+
+    <?php
+  // Générer cinq boutons radio pour la notation sur 5
+  for ($i = 1; $i <= 5; $i++) {
+    echo '<input type="radio" id="note' . $i . '" name="note" value="' . $i . '">';
+    echo '<label for="note' . $i . '">' . $i . '</label><br>';
+  }
+  ?>
+
+
+
+
+  
         <p class="contenu">
         <label for="rapBilan">Bilan du Rapport</label>
             <textarea id="rapBilan" name="rapBilan" rows="5" cols="33">
@@ -101,18 +135,8 @@
             </textarea>
         </p>
 
-        <p class="contenu">
-<<<<<<< HEAD
-        <label for="rapMotif">Choisissez un motif de rapport:</label>
 
-<select name="rapMotif" id="rapMotif">
-  <option value="1">Périodicité </option>
-  <option value="2">Chute de prescription</option>
-  <option value="3">Nouveautés ou actualisations</option>
-  <option value="4">Demande du médecin</option>
-  <option value="5">autre</option>
-</select>
-=======
+
         <label for="rapMotif">Motif du Rapport</label>
         <select name="motif_visite">
   <option value="periodicite">Périodicité</option>
@@ -122,14 +146,84 @@
   <option value="autre">Autre</option>
 </select>
 
->>>>>>> 43436f2e5c22b764dcb14e580dd07a3406188313
         </p>
+
+        
+        <button type="button" id="boutonMenu">Afficher les options</button>
+
+<div id="options" style="display: none;">
+  <?php
+  // Liste des noms des médicaments
+  $medicaments = array(
+    "TRIMYCINE",
+    "ADIMOL",
+    "AMOPIL",
+    "AMOXAR",
+    "AMOXI Gé",
+    "APATOUX Vitamine C",
+    "BACTIGEL",
+    "BACTIVIL",
+    "BIVALIC",
+    "CARTION",
+    "CLAZER",
+    "DEPRAMIL",
+    "DIMIRTAM",
+    "DOLORIL",
+    "NORMADOR",
+    "EQUILAR",
+    "EVEILLOR",
+    "INSECTIL",
+    "JOVENIL",
+    "LIDOXYTRACINE",
+    "LITHORINE",
+    "PARMOCODEINE",
+    "PHYSICOR",
+    "PIRIZAN",
+    "POMADINE"
+  );
+
+  // Générer les cases à cocher pour chaque médicament
+  foreach ($medicaments as $index => $medicament) {
+    $id = "option" . ($index + 1); // Générer un ID unique pour chaque case à cocher
+    echo '<input type="checkbox" id="' . htmlspecialchars($id) . '" name="' . htmlspecialchars($medicament) . '">';
+    echo '<label for="' . htmlspecialchars($id) . '">' . htmlspecialchars($medicament) . '</label><br>';
+  }
+  ?>
+</div>
+
+<!-- Script JavaScript pour afficher les options -->
+<script>
+  // Récupérer le bouton et la div contenant les options
+  var boutonMenu = document.getElementById("boutonMenu");
+  var optionsDiv = document.getElementById("options");
+  
+  // Cacher la div d'options initialement
+  optionsDiv.style.display = "none";
+  
+  // Ajouter un événement de clic sur le bouton
+  boutonMenu.addEventListener("click", function() {
+    // Si la div d'options est cachée, l'afficher; sinon, la cacher
+    if (optionsDiv.style.display === "none") {
+      optionsDiv.style.display = "block";
+      boutonMenu.textContent = "Cacher les options";
+    } else {
+      optionsDiv.style.display = "none";
+      boutonMenu.textContent = "Afficher les options";
+    }
+  });
+</script>
+
   	</fieldset>
+
 
   	<p>
   		<input class="bouton" type="submit" id="envoie" name="boutonValider" value="Envoyer" />
         <input class="bouton" type="reset" id="annule" name="boutonAnnuler" value="Annuler" />
   	</p>
   </form>
+
+
+
+
 </body>
 </html>

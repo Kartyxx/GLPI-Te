@@ -29,7 +29,7 @@
 	{
 		$_SESSION['nom']=$nom;
 		$_SESSION['num']=$numVititeur;
-		header("Location:../FrontEnd/index.php");
+		header("Location:../FrontEnd/index1.php");
 	}
 	else
 	// Le mot de passe saisi correspond � celui de la base utilisateur
